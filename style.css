@@ -11,11 +11,13 @@ body {
 
 .background {
     background-color: #eaedef;
-    margin: 30px auto;
-    height: 520px;
+    margin: 60px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 550px;
     width: 320px;
     border-radius: 7px;
-    box-shadow: ;
 }
 
 #result {
