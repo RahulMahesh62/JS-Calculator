@@ -41,19 +41,24 @@ for (var i = 0; i < operator.length; i++) {
                 output = output.substr(0, output.length - 1);
                 printOutput(output);
             }
-        }
-        var output = getOutput();
-        var history = getHistory();
-        if (output != "") {
-            output = reverseNumberFormat(output);
-            history = history + output;
-            if (this.id == "") {
-                var result = eval(history);
-                printOutput(result);
-                printHistory("");
+        } else {
+            var output = getOutput();
+            var history = getHistory();
+            if (output != "") {
+                output = reverseNumberFormat(output);
+                history = history + output;
+                if (this.id == "=") {
+                    var result = eval(history);
+                    printOutput(result);
+                    printHistory("");
+                } else {
+                    history = history + this.id;
+                    printHistory(history);
+                    printOutput("");
+                }
             }
         }
-    })
+    });
 }
 
 var number = document.getElementsByClassName("number");
@@ -64,5 +69,5 @@ for (var i = 0; i < number.length; i++) {
             output = output + this.id;
             printOutput(output);
         }
-    })
+    });
 }
