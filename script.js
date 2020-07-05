@@ -35,12 +35,22 @@ for (var i = 0; i < operator.length; i++) {
         if (this.id == "clear") {
             printOutput("");
             printHistory("");
-        }
-        if (this.id == "backspace") {
+        } else if (this.id == "backspace") {
             var output = reverseNumberFormat(getOutput()).toString();
             if (output) {
                 output = output.substr(0, output.length - 1);
                 printOutput(output);
+            }
+        }
+        var output = getOutput();
+        var history = getHistory();
+        if (output != "") {
+            output = reverseNumberFormat(output);
+            history = history + output;
+            if (this.id == "") {
+                var result = eval(history);
+                printOutput(result);
+                printHistory("");
             }
         }
     })
